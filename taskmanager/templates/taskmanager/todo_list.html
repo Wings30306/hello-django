@@ -19,9 +19,17 @@
         <tr>
             {% if item.done %}
             <td><s>{{item.task_name}}</s></td>
+
             {% else %}
             <td>{{item.task_name}}</td>
             {% endif %}
+            <td>
+                <a href="/toggle/{{item.id}}" class="btn btn-info">{% if item.done %}Not done{% else %}Done{% endif %}</a>
+            </td>
+            <td>
+                <a href="/edit/{{item.id}}" class="btn btn-warning">Edit</a>
+            </td>
+            <td><a href="/delete/{{item.id}}" class="btn btn-danger">Delete</a></td>
         </tr>
         {% empty %}
         <tr>
