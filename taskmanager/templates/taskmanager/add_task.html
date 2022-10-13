@@ -9,31 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Title</title>
+    <title>Add task</title>
 </head>
 
 <body>
-    <h1>To do</h1>
-    <table>
-        {% for item in items %}
-        <tr>
-            {% if item.done %}
-            <td><s>{{item.task_name}}</s></td>
-            {% else %}
-            <td>{{item.task_name}}</td>
-            {% endif %}
-        </tr>
-        {% empty %}
-        <tr>
-            <td>
-                No tasks found!
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="/add" class="btn btn-lg btn-info">New Task</a>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <h1>Add task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div>
+            <button type="submit">Add task</button>
+        </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
 
